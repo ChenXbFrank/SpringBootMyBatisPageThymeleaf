@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxb.dao.UserDao">
+    <!--根据名字查询单个对象-->
+    <select id="findUserByAge" parameterType="Integer" resultType="User">
+        select * from user where age = #{age}
+    </select>
+
+    <!--这是返回的集合的属性-->
+    <resultMap id="userBaseMap" type="User">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+    </resultMap>
+
+    <!--根据名字查询集合对象-->
+    <select id="findListByName" resultMap="userBaseMap" parameterType="java.lang.String" >
+        select * from user where name = #{name}
+    </select>
+    
+     <!--根据名字查询集合对象-->
+    <select id="findAllUser" resultMap="userBaseMap">
+        select * from user
+    </select>
+    
+    <!--插入一个对象-->
+    <insert id="saveUserByParm" parameterType="HashMap" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user(name, age) VALUES(#{name}, #{age})
+    </insert>
+    
+    <!--修改对象  -->
+	<update id="updateUserById" parameterType="HashMap">
+		update user set name=#{name}, age=#{age} where id=#{id}		
+	</update>
+	
+	<!--根据id删除对象  -->
+	<delete id="deleteUserById" parameterType="Integer">
+		delete from user where id =#{id}
+	</delete>
+	
+</mapper>

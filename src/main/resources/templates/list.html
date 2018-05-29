@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index thymeleaf</title>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/home.js"></script>
+</head>
+<body>
+	<h1>循环显示集合</h1>
+	<!-- <a href="user.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a> -->
+	<table border="1">  
+         <tr>  
+             <th>ID</th>  
+             <th>名字</th>  
+             <th>年纪</th>
+             <th>操作</th>   
+          </tr>  
+         <tr th:each="user : ${list}">  
+             <td th:text="${user.id}"></td>  
+             <td th:text="${user.name}"></td>  
+             <td th:text="${user.age}"></td>  
+             <td>
+             	<!--带参数跳转页面  -->
+             	<a href="user.html" th:href="@{/home/userById(id=${user.id})}">查看详情</a>
+             </td>
+           </tr>
+     </table>  
+     <hr>
+     <a th:href="@{http://www.baidu.com}">绝对路径(百度)</a>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index thymeleaf</title>
+<link rel="stylesheet" href="/css/style.css"/>
+<script src="/js/home.js"></script>
+</head>
+<body>
+	<h1>显示单个对象的属性值</h1>
+	ID:<input type="text" name="id" value="James Carrot" th:value="${user.id}" />
+	NAME:<input type="text" name="name" value="James Carrot" th:value="${user.name}" />
+	AGE:<input type="text" name="age" value="James Carrot" th:value="${user.age}" />
+</body>
+</html>

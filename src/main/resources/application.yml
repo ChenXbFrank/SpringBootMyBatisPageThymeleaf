@@ -18,6 +18,12 @@ spring:
      username: root
      password: 123456
      driver-class-name: com.mysql.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+      
+    show-sql: true    
      
 #指定mybatis映射文件的地址
 mybatis:
